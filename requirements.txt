@@ -4,4 +4,4 @@ streamlit
 opencv-python-headless
 requests
 ultralytics
-cv2
+opencv-python
