@@ -1,16 +1,48 @@
 import streamlit as st
+import pandas as pd
+import requests
+import time
 
 class DashboardPage:
     def __init__(self):
         self.title = 'Dashboard'
+        self.__url = 'http://192.168.18.81:5000/find/data'
 
     def show(self):
-        st.title('Dashboard Overview')
+        st.title('Dashboard Overview🌱🌍')
         st.write('Welcome to the main dashboard')
-        col1, col2, col3 = st.columns(3)
+
+        col1, col2 = st.columns(2)
+
         with col1:
-            st.metric('Total Users', '1,200', '4%')
+            self.__ph = st.empty()
+
         with col2:
-            st.metric('Sales', '$45K', '7%')
-        with col3:
-            st.metric('Orders', '320', '-2%')    
+            self.__soil = st.empty()
+
+        self.__chart_placeholder = st.empty()
+        
+        self.__update_data()
+
+    def __update_data(self):
+        while True:
+            try:
+                response = requests.get(self.__url)
+                data = response.json()
+
+                if data:
+                    last_data = data[-1]
+                    ph = last_data.get("ph", "N/A")
+                    soil = last_data.get("soil", "N/A")
+
+                    self.__ph.metric('pH Level 🌱', f'{ph}', "Updated 📈")
+                    self.__soil.metric('Soil Level 🌍', f'{soil}', "Updated 🌿")
+
+                    df = pd.DataFrame(data)
+                    self.__chart_placeholder.line_chart(df[['ph', 'soil']])
+
+            except Exception as e:
+                st.error(f"Error fetching data: {e}")
+
+            time.sleep(10)
+

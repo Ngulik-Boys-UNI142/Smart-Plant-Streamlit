@@ -28,9 +28,7 @@ class DetectionPage:
             self.__control_streaming()
 
         with col1:
-            self.stream_placeholder = st.empty()
-            self.hallo_placeholder = st.empty()
-            self.data_placeholder = st.empty()
+            self.__stream_placeholder = st.empty()
             self.__handle_display()
 
     def __control_streaming(self):
@@ -45,7 +43,7 @@ class DetectionPage:
 
     def __handle_display(self):
         if st.session_state['is_streaming'] and st.session_state['last_image'] is not None:
-            self.stream_placeholder.image(st.session_state['last_image'], channels='RGB')
+            self.__stream_placeholder.image(st.session_state['last_image'], channels='RGB')
         elif st.session_state['is_streaming']:
             self.__process_url_image(self.__url)
 
@@ -66,7 +64,7 @@ class DetectionPage:
                 detected_frame = results[0].plot()
                 st.session_state['last_image'] = detected_frame
 
-                self.stream_placeholder.image(st.session_state['last_image'], channels='RGB')
+                self.__stream_placeholder.image(st.session_state['last_image'], channels='RGB')
             else:
                 st.error("Gagal membaca gambar dari URL 😞.")
                 st.session_state['is_streaming'] = False
