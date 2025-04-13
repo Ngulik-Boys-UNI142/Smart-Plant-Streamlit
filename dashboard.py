@@ -9,8 +9,8 @@ class DashboardPage:
         self.__url = 'https://api-smart-plant.vercel.app/find/data'
 
     def show(self):
-        st.title('Dashboard Overview🌱🌍')
-        st.write('Welcome to the main dashboard')
+        st.title('Dashboard Overview📈')
+        st.write('Selamat datang di **SMART PLANT**🌱🌍')
         st.markdown("Tekan tombol 'Pemantauan' untuk melihat data.")
 
         if st.button('Pemantauan 👀'):

@@ -20,7 +20,6 @@ class DetectionPage:
 
     def show(self):
         st.title('Deteksi Objek 🔍')
-        st.markdown('Selamat datang di halaman deteksi objek! 👀')
         st.markdown('Tekan tombol "Ambil Gambar" untuk melakukan deteksi.')
         col1, col2 = st.columns(2)
 
