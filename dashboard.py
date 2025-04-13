@@ -6,7 +6,7 @@ import time
 class DashboardPage:
     def __init__(self):
         self.title = 'Dashboard'
-        self.__url = 'http://192.168.18.81:5000/find/data'
+        self.__url = 'https://coherent-classic-platypus.ngrok-free.app/find/data'
 
     def show(self):
         st.title('Dashboard Overview🌱🌍')

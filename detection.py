@@ -16,7 +16,7 @@ class DetectionPage:
 
         self.__model_file = 'best.pt'
         self.__model = YOLO(self.__model_file)
-        self.__url = 'http://192.168.18.81:5000/get/image' 
+        self.__url = 'https://coherent-classic-platypus.ngrok-free.app/get/image' 
 
     def show(self):
         st.title('Deteksi Objek 🔍')
