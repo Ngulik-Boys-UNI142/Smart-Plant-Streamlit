@@ -16,7 +16,7 @@ class DetectionPage:
 
         self.__model_file = 'best.pt'
         self.__model = YOLO(self.__model_file)
-        self.__url = 'https://coherent-classic-platypus.ngrok-free.app/get/image' 
+        self.__url = 'https://api-smart-plant.vercel.app/get/image' 
 
     def show(self):
         st.title('Deteksi Objek 🔍')
@@ -66,11 +66,11 @@ class DetectionPage:
 
                 self.__stream_placeholder.image(st.session_state['last_image'], channels='RGB')
             else:
-                st.error("Gagal membaca gambar dari URL 😞.")
+                st.error('Gagal membaca gambar dari URL 😞.')
                 st.session_state['is_streaming'] = False
                 
         except Exception as e:
-            st.error(f"Terjadi kesalahan tak terduga 💥: {e}")
+            st.error(f'Terjadi kesalahan tak terduga 💥: {e}')
             st.session_state['is_streaming'] = False
     
     def __download_button(self):
@@ -80,32 +80,17 @@ class DetectionPage:
 
             if success:
                 b64 = base64.b64encode(buffer).decode()
-                filename = f"detected_image_{datetime.now().strftime('%Y%m%d_%H%M%S')}.jpg"
+                filename = f'detected_image_{datetime.now().strftime('%Y%m%d_%H%M%S')}.jpg'
                 href = f'''
-                        {st.success("🎉 Gambar berhasil diunduh!")
-}
                         <a href="data:file/jpg;base64,{b64}" download="{filename}" id="download-link"></a>
                         
                         <script>
                             document.getElementById("download-link").click()
                         </script>
                         '''
+                st.success('🎉 Gambar berhasil diunduh!')
                 components.html(href, height=0, width=0)
             else:
-                st.error("Gagal mengkodekan gambar untuk diunduh.")
+                st.error('Gagal mengkodekan gambar untuk diunduh.')
         else:
-            st.warning("Tidak ada gambar yang terdeteksi untuk diunduh.")
-
-
-
-
-    # def _update_info(self):
-    #     now = time.time()
-    #     if now - st.session_state['last_hallo_time'] >= 1:
-    #         try:
-    #             server_time = get(url='https://indodax.com//api/server_time').json()['server_time']
-    #             self.data_placeholder.write(server_time)
-    #             self.hallo_placeholder.write(f'hallo - {datetime.now().strftime("%H:%M:%S")}')
-    #             st.session_state['last_hallo_time'] = now
-    #         except Exception as e:
-    #             self.data_placeholder.error(f"Error fetching server time: {e}")
+            st.warning('Tidak ada gambar yang terdeteksi untuk diunduh.')

@@ -7,7 +7,7 @@ import streamlit as st
 
 class ModelGenai():
     def __init__(self):
-        self.__GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+        self.__GOOGLE_API_KEY = st.secrets['GOOGLE_API_KEY']
         self.__model = 'gemini-1.5-pro'
         
         self.__system_template = 'Kamu adalah asisten ahli tanaman dan juga teman saya. Jangan memberikan pertanyaan di akhir karena kamu tidak bisa mengingat'

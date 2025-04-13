@@ -18,8 +18,8 @@ class ChatPage:
         elif not st.session_state['last_message']:
             st.info("Masukkan pertanyaan lalu klik tombol 'Tanya'.")
         elif st.session_state['last_message']:
-            st.info(f"Pertanyaan terakhir Anda: {st.session_state['last_message']['question']}")
-            st.markdown(f"**Jawaban terakhir:** {st.session_state['last_message']['answer']}")
+            st.info(f'Pertanyaan terakhir Anda: {st.session_state['last_message']['question']}')
+            st.markdown(f'**Jawaban terakhir:** {st.session_state['last_message']['answer']}')
 
     def __handle_question(self, question):
         with st.spinner('Menjawab...'):

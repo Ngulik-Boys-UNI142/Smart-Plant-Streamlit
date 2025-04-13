@@ -1,7 +1,7 @@
 langchain
 langchain-google-genai
 streamlit
-opencv-python
+opencv-python-headless
 requests
 ultralytics
 opencv-python
