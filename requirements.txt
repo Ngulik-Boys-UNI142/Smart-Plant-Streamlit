@@ -4,3 +4,4 @@ streamlit
 opencv-python
 requests
 ultralytics
+opencv-python
