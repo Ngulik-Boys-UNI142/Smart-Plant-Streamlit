@@ -11,18 +11,20 @@ class DashboardPage:
     def show(self):
         st.title('Dashboard Overview🌱🌍')
         st.write('Welcome to the main dashboard')
+        st.markdown('Tekan tombol "Pemantauan" untuk melihat data.')
 
-        col1, col2 = st.columns(2)
+        if st.button('Pemantauan 👀'):
+            col1, col2 = st.columns(2)
 
-        with col1:
-            self.__ph = st.empty()
+            with col1:
+                self.__ph = st.empty()
 
-        with col2:
-            self.__soil = st.empty()
+            with col2:
+                self.__soil = st.empty()
 
-        self.__chart_placeholder = st.empty()
-        
-        self.__update_data()
+            self.__chart_placeholder = st.empty()
+            
+            self.__update_data()
 
     def __update_data(self):
         while True:
