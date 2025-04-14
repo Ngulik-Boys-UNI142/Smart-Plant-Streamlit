@@ -69,7 +69,7 @@ class DetectionPage:
                 st.session_state['is_streaming'] = False
                 
         except Exception as e:
-            st.error(f'Terjadi kesalahan tak terduga 💥: {e}')
+            st.warning('Kamera sedang tidak aktif 😞.')
             st.session_state['is_streaming'] = False
     
     def __download_button(self):
