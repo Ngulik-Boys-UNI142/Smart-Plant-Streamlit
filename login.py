@@ -16,7 +16,7 @@ def show_login_page():
     chat_id = st.text_input(
         'Enter you Chat ID',
         value=st.session_state['chat_id'],
-        placeholder='Your Telegram Chat ID',
+        placeholder='Telegram Chat ID (contoh: 1111)',
         key='chat_id_input'
     )
 
